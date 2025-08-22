@@ -1,5 +1,7 @@
 import mysql.connector
 from mysql.connector import errorcode
+from flask_sqlalchemy import SQLAlchemy
+
 
 print("Conectando...")
 try:
