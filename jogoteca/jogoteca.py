@@ -45,6 +45,22 @@ app.config['SQLALCHEMY_DATABASE_URI'] = \
 
 db = SQLAlchemy(app)
 
+#criar classe para tabela jogos
+class Jogo(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nome = db.Column(db.String(50), nullable=False)
+    categoria = db.Column(db.String(40), nullable=False)
+    console = db.Column(db.String(20), nullable=False)
+
+def repr(self):
+    return '<Name %r>' % self.name
+
+#criar classe para tabela usuários
+class Usuario(db.Model):
+    nickname = db.Column(db.String(8), nullable=False)
+    nome = db.Column(db.String(20), nullable=False)
+    senha = db.Column(db.String(100), nullable=False)
+
 @app.route('/')
 def index():
     return render_template('lista.html', titulo_home='Jogos',jogos = lista_de_jogos)     
